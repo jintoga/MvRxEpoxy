@@ -4,11 +4,11 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
 import com.jintoga.mvrxepoxy.R
+import kotlinx.android.synthetic.main.basic_row.view.*
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
 class BasicRow @JvmOverloads constructor(
@@ -17,13 +17,8 @@ class BasicRow @JvmOverloads constructor(
         defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private val titleView: TextView
-    private val subtitleView: TextView
-
     init {
         inflate(context, R.layout.basic_row, this)
-        titleView = findViewById(R.id.title)
-        subtitleView = findViewById(R.id.subtitle)
         orientation = VERTICAL
     }
 

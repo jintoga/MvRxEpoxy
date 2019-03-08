@@ -18,7 +18,7 @@ class MainFragment : BaseFragment() {
             id("hello_world")
             title("Hello World")
             subtitle(demonstrates("Simple MvRx usage"))
-            clickListener { _ ->   }
+            clickListener { _ -> navigateTo(R.id.action_mainFragment_to_earningFragment) }
         }
 
         basicRow {

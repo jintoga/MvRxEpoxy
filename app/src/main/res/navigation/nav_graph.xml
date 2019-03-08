@@ -11,10 +11,17 @@
         <action
             android:id="@+id/action_mainFragment_to_randomDadJokeFragment"
             app:destination="@id/randomDadJokeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_earningFragment"
+            app:destination="@id/earningFragment" />
     </fragment>
     <fragment
         android:id="@+id/randomDadJokeFragment"
         android:name="com.jintoga.mvrxepoxy.feature.RandomDadJokeFragment"
         android:label="RandomDadJokeFragment" />
+    <fragment
+        android:id="@+id/earningFragment"
+        android:name="com.jintoga.mvrxepoxy.feature.EarningFragment"
+        android:label="EarningFragment" />
 
 </navigation>

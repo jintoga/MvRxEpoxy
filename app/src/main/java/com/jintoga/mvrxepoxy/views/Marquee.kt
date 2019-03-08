@@ -4,10 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
 import com.jintoga.mvrxepoxy.R
+import kotlinx.android.synthetic.main.marquee.view.*
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
 class Marquee @JvmOverloads constructor(
@@ -16,13 +16,8 @@ class Marquee @JvmOverloads constructor(
         defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private val titleView: TextView
-    private val subtitleView: TextView
-
     init {
         inflate(context, R.layout.marquee, this)
-        titleView = findViewById(R.id.title)
-        subtitleView = findViewById(R.id.subtitle)
         orientation = VERTICAL
     }
 

@@ -4,7 +4,7 @@
     tools:parentTag="android.widget.LinearLayout">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/titleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/padding_horizontal"
@@ -16,7 +16,7 @@
         tools:text="Marquee" />
 
     <TextView
-        android:id="@+id/subtitle"
+        android:id="@+id/subtitleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/padding_horizontal"
