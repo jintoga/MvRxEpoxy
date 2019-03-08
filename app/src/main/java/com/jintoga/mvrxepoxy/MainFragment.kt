@@ -27,6 +27,13 @@ class MainFragment : BaseFragment() {
             subtitle(demonstrates("fragmentViewModel", "Network requests", "Dependency Injection"))
             clickListener { _ -> navigateTo(R.id.action_mainFragment_to_randomDadJokeFragment) }
         }
+
+        basicRow {
+            id("index_dad_joke")
+            title("Dad Joke Index")
+            subtitle(demonstrates("fragmentViewModel", "Network requests", "Dependency Injection"))
+            clickListener { _ -> navigateTo(R.id.action_mainFragment_to_dadJokeIndexFragment) }
+        }
     }
 
     private fun demonstrates(vararg items: String) =

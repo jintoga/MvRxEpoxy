@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_mainFragment_to_earningFragment"
             app:destination="@id/earningFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_dadJokeIndexFragment"
+            app:destination="@id/dadJokeIndexFragment" />
     </fragment>
     <fragment
         android:id="@+id/randomDadJokeFragment"
@@ -23,5 +26,9 @@
         android:id="@+id/earningFragment"
         android:name="com.jintoga.mvrxepoxy.feature.EarningFragment"
         android:label="EarningFragment" />
+    <fragment
+        android:id="@+id/dadJokeIndexFragment"
+        android:name="com.jintoga.mvrxepoxy.feature.DadJokeIndexFragment"
+        android:label="DadJokeIndexFragment" />
 
 </navigation>
