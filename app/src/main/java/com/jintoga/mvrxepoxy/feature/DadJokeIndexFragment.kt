@@ -2,6 +2,7 @@ package com.jintoga.mvrxepoxy.feature
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.airbnb.mvrx.Fail
 import com.airbnb.mvrx.fragmentViewModel
@@ -11,6 +12,7 @@ import com.jintoga.mvrxepoxy.views.basicRow
 import com.jintoga.mvrxepoxy.views.loadingRow
 import com.jintoga.mvrxepoxy.views.marquee
 import com.jintoga.mvrxepoxy.views.retryRow
+
 
 class DadJokeIndexFragment : BaseFragment() {
 
@@ -31,9 +33,16 @@ class DadJokeIndexFragment : BaseFragment() {
             Snackbar.make(coordinatorLayout, error.localizedMessage, Snackbar.LENGTH_SHORT)
                     .show()
         })
+
+        val spanCount = 2
+        val layoutManager = GridLayoutManager(context, spanCount)
+        epoxyController.spanCount = spanCount
+        layoutManager.spanSizeLookup = epoxyController.spanSizeLookup
+        recyclerView.layoutManager = layoutManager
     }
 
     override fun epoxyController() = simpleController(viewModel) { state ->
+
         marquee {
             id("marquee")
             title("Dad Jokes")
@@ -47,6 +56,9 @@ class DadJokeIndexFragment : BaseFragment() {
                             R.id.action_dadJokeIndex_to_dadJokeDetailFragment,
                             DadJokeDetailArgs(joke.id)
                     )*/
+                }
+                spanSizeOverride { totalSpanCount, _, _ ->
+                    totalSpanCount / 2
                 }
             }
         }
@@ -66,5 +78,6 @@ class DadJokeIndexFragment : BaseFragment() {
                 onBind { _, _, _ -> viewModel.fetchNextPage() }
             }
         }
+
     }
 }

@@ -1,5 +1,8 @@
 package com.jintoga.mvrxepoxy.feature
 
+import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import com.airbnb.mvrx.*
 import com.jintoga.mvrxepoxy.core.BaseFragment
 import com.jintoga.mvrxepoxy.core.MvRxViewModel
@@ -39,6 +42,16 @@ class EarningViewModel(
 class EarningFragment : BaseFragment() {
     private val viewModel: EarningViewModel by fragmentViewModel()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val spanCount = 2
+        val layoutManager = GridLayoutManager(context, spanCount)
+        epoxyController.spanCount = spanCount
+        layoutManager.spanSizeLookup = epoxyController.spanSizeLookup
+        recyclerView.layoutManager = layoutManager
+    }
+
     override fun epoxyController() = simpleController(viewModel) { state ->
         marquee {
             id("marquee")
@@ -63,6 +76,9 @@ class EarningFragment : BaseFragment() {
                 title(it.ticker)
                 subtitle(it.earningTime)
                 clickListener { _ -> viewModel.fetchEarning() }
+                spanSizeOverride { totalSpanCount, _, _ ->
+                    totalSpanCount / 2
+                }
             }
         }
     }
