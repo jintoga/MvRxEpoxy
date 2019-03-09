@@ -8,7 +8,7 @@ import com.jintoga.mvrxepoxy.network.DadJokeService
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.ext.android.inject
 
-private const val JOKES_PER_PAGE = 5
+private const val JOKES_PER_PAGE = 10
 
 data class DadJokeIndexState(
         /** We use this request to store the list of all jokes. */
